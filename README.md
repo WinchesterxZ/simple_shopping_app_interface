@@ -10,9 +10,10 @@ Hey there! 👋 This is a simple shopping app UI I built with Flutter. Nothing f
 - Add to cart functionality with feedback
 
 ## Screenshots
-![1](https://github.com/user-attachments/assets/bc73d977-d88e-4d78-8ab7-1ef353f56352)
 
-![2](https://github.com/user-attachments/assets/ba7d40c4-35f9-40c6-a8a6-2682de7604b2)
+<img src="https://github.com/user-attachments/assets/bc73d977-d88e-4d78-8ab7-1ef353f56352" width="375" height="667" />
+  
+<img src="https://github.com/user-attachments/assets/ba7d40c4-35f9-40c6-a8a6-2682de7604b2" width="375" height="667" />
 
 ## Quick Start
 
