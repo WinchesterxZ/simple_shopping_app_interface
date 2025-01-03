@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_interface/signup_page.dart';
+import 'package:shopping_app_interface/feature/signup/signup_page.dart';
 
 void main() {
   runApp(const MyApp()); // Entry point of the app
