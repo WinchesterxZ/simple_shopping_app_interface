@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_interface/widgets/product_item.dart';
+import 'package:shopping_app_interface/features/shopping_screen/widgets/product_item.dart';
 // This class represents the home page widget
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

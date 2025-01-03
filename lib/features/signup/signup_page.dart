@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/core/functions.dart';
 import 'package:shopping_app_interface/core/strings.dart';
-import 'package:shopping_app_interface/shopping_main_screen.dart';
-import 'package:shopping_app_interface/widgets/custom_button.dart';
-import 'package:shopping_app_interface/widgets/custom_icon_button.dart';
-import 'package:shopping_app_interface/widgets/custom_logo.dart';
-import 'package:shopping_app_interface/widgets/custom_text_field.dart';
+import 'package:shopping_app_interface/features/shopping_screen/shopping_main_screen.dart';
+import 'package:shopping_app_interface/features/signup/widgets/custom_button.dart';
+import 'package:shopping_app_interface/features/signup/widgets/custom_icon_button.dart';
+import 'package:shopping_app_interface/features/signup/widgets/custom_logo.dart';
+import 'package:shopping_app_interface/features/signup/widgets/custom_text_field.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
