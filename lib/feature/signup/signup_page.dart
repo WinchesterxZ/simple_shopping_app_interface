@@ -45,20 +45,7 @@ class _MyWidgetState extends State<SignupScreen> {
                   Navigator.of(context).pop(); // Dismiss dialog
                   Navigator.pushReplacement(
                     context,
-                    // Using a custom page route to add a fade transition
-                    PageRouteBuilder(
-                      //  pageBuilder for defining the target page and transitionsBuilder for specifying the animation.
-                      pageBuilder: (context, animation, secondaryAnimation) =>
-                          const MyHomePage(),
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: child,
-                        );
-                      },
-                      transitionDuration: const Duration(milliseconds: 500),
-                    ),
+                    MaterialPageRoute(builder: (context) => const MyHomePage()),
                   );
                 },
                 child: const Text('OK'),
