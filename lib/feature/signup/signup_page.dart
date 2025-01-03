@@ -28,6 +28,15 @@ class _MyWidgetState extends State<SignupScreen> {
     _obscurePassword.value = !_obscurePassword.value;
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _usernameController.dispose();
+    _passwordController.dispose();
+    _passwordVerifyController.dispose();
+  }
+
   void _submit() {
     if (_formKey.currentState!.validate()) {
       // Had to use pushReplacement instead of push here because the back button was messing up the flow >-< :(
@@ -43,6 +52,9 @@ class _MyWidgetState extends State<SignupScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Dismiss dialog
+                  FocusScope.of(context)
+                      .unfocus(); // dissmiss Keyboared (for somehow keyboared show )
+
                   Navigator.pushReplacement(
                     context,
                     // Using a custom page route to add a fade transition
