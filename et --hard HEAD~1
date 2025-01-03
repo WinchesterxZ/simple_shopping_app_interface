@@ -1,0 +1,20 @@
+* [33m2713432[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/localization[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m merging animation
+*   [33mc0515cf[m Merge branch 'feature/animation'
+[32m|[m[33m\[m  
+[32m|[m * [33mb03fda3[m[33m ([m[1;31morigin/feature/animation[m[33m, [m[1;32mfeature/animation[m[33m)[m disnissing keyboared
+* [33m|[m [33mbaf9064[m fixing imports
+[33m|[m[33m/[m  
+* [33me76e259[m added Animation
+* [33m7ca9070[m Structuring files
+* [33m1b432d9[m done
+* [33m6b0a5a0[m deleting duplicated files
+* [33mff69056[m merged with signup
+*   [33mbfef30c[m Merge branch 'feature/signup'
+[34m|[m[35m\[m  
+[34m|[m * [33ma5533fe[m Finishing Signingup
+* [35m|[m [33mbdd4092[m Update README.md
+* [35m|[m [33mfebe68d[m Update README.md
+[35m|[m[35m/[m  
+* [33m248cd3e[m adding screenshots
+* [33ma4012cf[m Update Readme file
+* [33m0b91c6e[m Done

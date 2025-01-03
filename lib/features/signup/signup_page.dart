@@ -58,6 +58,15 @@ class _MyWidgetState extends State<SignupScreen> {
       );
     }
   }
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _usernameController.dispose();
+    _passwordController.dispose();
+    _passwordVerifyController.dispose();
+    _obscurePassword.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
