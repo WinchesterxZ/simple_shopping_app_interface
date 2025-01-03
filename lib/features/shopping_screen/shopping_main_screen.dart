@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/features/shopping_screen/widgets/product_item.dart';
+
 // This class represents the home page widget
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(); // Create the state for the home page
+  State<MyHomePage> createState() =>
+      _MyHomePageState(); // Create the state for the home page
 }
 
 // This class represents the state of the home page widget
@@ -47,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.black,
@@ -74,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: _productImages.length, // Number of items
                   itemBuilder: (context, index) {
                     return ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Rounded corners
                       child: Image.network(
                         _productImages[index], // Display product image
                         fit: BoxFit.cover,
@@ -90,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Two columns
-                  childAspectRatio: 0.8,  // Tried 0.7 and 0.9, this one's just right
+                  childAspectRatio:
+                      0.8, // Tried 0.7 and 0.9, this one's just right
                   mainAxisSpacing: 8.0, // Spacing between items
                   crossAxisSpacing: 8.0, // Spacing between columns
                 ),
@@ -111,7 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 8),
               // Hot offers list
               SizedBox(
-                height: screenSize.height * 0.25, // Set a fixed height to control scrolling area
+                height: screenSize.height *
+                    0.25, // Set a fixed height to control scrolling area
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal, // Horizontal scrolling
                   itemCount: _hotOfferNames.length, // Number of items
@@ -122,7 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: ProductItem(
-                          productImage: _hotOfferImages[index], // Hot offer image
+                          productImage:
+                              _hotOfferImages[index], // Hot offer image
                           productName: _hotOfferNames[index], // Hot offer name
                           showCartIcon: false, // Disable cart icon for offers
                         ),
@@ -138,5 +144,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
