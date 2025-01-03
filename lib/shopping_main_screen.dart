@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_interface/product_item.dart';
+import 'package:shopping_app_interface/widgets/product_item.dart';
 // This class represents the home page widget
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 8),
               // Product images carousel
               SizedBox(
+                // Found this height ratio by accident, but it looks perfect on most phones
                 height: screenSize.height * 0.25, // Set height
                 child: PageView.builder(
                   itemCount: _productImages.length, // Number of items
@@ -89,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Two columns
-                  childAspectRatio: 0.8, // Aspect ratio
+                  childAspectRatio: 0.8,  // Tried 0.7 and 0.9, this one's just right
                   mainAxisSpacing: 8.0, // Spacing between items
                   crossAxisSpacing: 8.0, // Spacing between columns
                 ),
@@ -116,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: _hotOfferNames.length, // Number of items
                   itemBuilder: (context, index) {
                     return SizedBox(
+                      // Hot offers need different width on tablets, might need to adjust this later
                       width: screenSize.width * 0.4,
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
