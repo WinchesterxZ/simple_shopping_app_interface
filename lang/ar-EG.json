@@ -1,0 +1,23 @@
+{
+    "create_account": "إنشاء حساب",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "sign_up": "سجل",
+    "product_headline": "منتجاتنا",
+    "offer_headline": "عروض حصرية",
+    "app_headline": "تطبيق التسوق",
+    "dialog_headline":"نجاح",
+    "dialog_content":" تم إنشاء حساب بنجاح",
+    "dialog_button":"حسنا",
+    "or": "أو",
+    "username_required":"اسم المستخدم مطلوب",
+    "username_valid":"يجب أن يبدأ اسم المستخدم بحرف كبير",
+    "email_required":"البريد الإلكتروني مطلوب",
+    "email_invalid":"البريد الإلكتروني غير صالح",
+    "password_required":"كلمة المرور مطلوبة",
+    "password_min":"كلمة المرور يجب ان تكون على الاقل 6 حروف",
+    "password_match":"كلمة المرور يجب ان تكون متطابقة"
+
+}

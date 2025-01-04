@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/core/functions.dart';
 import 'package:shopping_app_interface/core/strings.dart';
@@ -46,8 +47,8 @@ class _MyWidgetState extends State<SignupScreen> {
         barrierDismissible: false, // Prevent dismissing by tapping outside
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Success'),
-            content: const Text('Account created successfully'),
+            title:  Text(tr('dialog_headline')),
+            content:  Text(tr('dialog_content')),
             actions: [
               TextButton(
                 onPressed: () {
@@ -73,7 +74,7 @@ class _MyWidgetState extends State<SignupScreen> {
                     ),
                   );
                 },
-                child: const Text('OK'),
+                child:  Text(tr('dialog_button')),
               ),
             ],
           );
@@ -106,10 +107,10 @@ class _MyWidgetState extends State<SignupScreen> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Padding(
+                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(
-                            'Create An account',
+                            tr('create_account'),
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -117,7 +118,7 @@ class _MyWidgetState extends State<SignupScreen> {
                           padding: const EdgeInsets.only(bottom: 12),
                           child: CustomTextField(
                             controller: _usernameController,
-                            labelText: 'Username',
+                            labelText: tr('username'),
                             validator: validateUsername,
                           ),
                         ),
@@ -125,7 +126,7 @@ class _MyWidgetState extends State<SignupScreen> {
                           padding: const EdgeInsets.only(bottom: 12),
                           child: CustomTextField(
                             controller: _emailController,
-                            labelText: 'Email',
+                            labelText: tr('email'),
                             validator: validateEmail,
                           ),
                         ),
@@ -136,7 +137,7 @@ class _MyWidgetState extends State<SignupScreen> {
                               return CustomTextField(
                                 controller: _passwordController,
                                 obscureText: value,
-                                labelText: 'Password',
+                                labelText: tr('password'),
                                 suffixIcon: IconButton(
                                   onPressed: _tooglePasswordVisability,
                                   icon: Icon(
@@ -156,7 +157,7 @@ class _MyWidgetState extends State<SignupScreen> {
                                 child: CustomTextField(
                                   controller: _passwordVerifyController,
                                   obscureText: value,
-                                  labelText: 'Confirm Password',
+                                  labelText: tr('confirm_password'),
                                   suffixIcon: IconButton(
                                     onPressed: _tooglePasswordVisability,
                                     icon: Icon(
@@ -174,7 +175,7 @@ class _MyWidgetState extends State<SignupScreen> {
                           height: 25,
                         ),
                         CustomButtonWidget(
-                            buttonText: 'Sign Up', onPressed: _submit),
+                            buttonText: tr('sign_up'), onPressed: _submit),
                         const SizedBox(height: 20),
                         // added a divider and social media icons
                         Row(
@@ -191,7 +192,7 @@ class _MyWidgetState extends State<SignupScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
-                                "Or",
+                                tr('or'),
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,

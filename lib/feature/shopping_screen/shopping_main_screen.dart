@@ -1,11 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/feature/shopping_screen/widgets/product_item.dart';
+
 // This class represents the home page widget
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(); // Create the state for the home page
+  State<MyHomePage> createState() =>
+      _MyHomePageState(); // Create the state for the home page
 }
 
 // This class represents the state of the home page widget
@@ -47,11 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    
+
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.black,
-        title: const Text('Shopping App'), // Title of the app bar
+        title: Text(tr('app_headline')), // Title of the app bar
         centerTitle: true, // Center the title
       ),
       body: SingleChildScrollView(
@@ -61,8 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title of the products section
-              const Text(
-                'Our Products',
+              Text(
+                tr('product_headline'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
@@ -73,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: _productImages.length, // Number of items
                   itemBuilder: (context, index) {
                     return ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Rounded corners
                       child: Image.network(
                         _productImages[index], // Display product image
                         fit: BoxFit.cover,
@@ -103,14 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const SizedBox(height: 16),
               // Title of the hot offers section
-              const Text(
-                'Hot Offers',
+              Text(
+                tr('offer_headline'),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               // Hot offers list
               SizedBox(
-                height: screenSize.height * 0.25, // Set a fixed height to control scrolling area
+                height: screenSize.height *
+                    0.25, // Set a fixed height to control scrolling area
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal, // Horizontal scrolling
                   itemCount: _hotOfferNames.length, // Number of items
@@ -120,7 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: ProductItem(
-                          productImage: _hotOfferImages[index], // Hot offer image
+                          productImage:
+                              _hotOfferImages[index], // Hot offer image
                           productName: _hotOfferNames[index], // Hot offer name
                           showCartIcon: false, // Disable cart icon for offers
                         ),
@@ -136,5 +142,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

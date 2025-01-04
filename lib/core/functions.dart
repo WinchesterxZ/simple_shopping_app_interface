@@ -1,4 +1,4 @@
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 bool isFirstLetterUppercase(String value) {
@@ -11,41 +11,39 @@ bool isFirstLetterUppercase(String value) {
 
 String? validateEmail(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Email is required';
+    return tr('email_required');
   }
   final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
   if (!emailRegex.hasMatch(value)) {
-    return 'Enter a valid email';
+    return tr('email_invalid');
   }
   return null;
 }
 
 String? validateUsername(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Username is required';
+    return tr('username_required');
   }
   if (!isFirstLetterUppercase(value)) {
-    return 'Username must start with a capital letter';
+    return tr('username_valid');
   }
   return null;
 }
 
 String? validatePassword(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Please enter your password';
+    return tr('password_required');
   }
   if (value.length < 6) {
-    return 'Password must be at least 6 characters long';
+    return tr('password_min');
   }
-  // Add more conditions for password strength if needed
   return null;
 }
 
 String? confirmPassword(
     TextEditingController passwordController, String? value) {
   if (passwordController.value.text != value) {
-    return 'Passwords do not match';
+    return tr('password_match');
   }
-  // Add more conditions for password strength if needed
   return null;
 }

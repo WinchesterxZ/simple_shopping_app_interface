@@ -1,0 +1,26 @@
+{
+    "create_account": "Create An Account",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "sign_up": "Sign Up",
+    "product_headline": "Our Products",
+    "offer_headline": "Hot Offers",
+    "app_headline": "Shopping App",
+    "dialog_headline":"Success",
+    "dialog_content":"Account Created Successfully",
+    "dialog_button":"OK",
+    "or": "Or",
+    "username_required":"Username is required",
+    "username_valid":"Username must start with a capital letter",
+    "email_required":"Email is required",
+    "email_invalid":"Email is invalid",
+    "password_required":"Password is required",
+    "password_min":"Password must be at least 6 characters",
+    "password_match":"Passwords must match"
+    
+
+
+
+}
