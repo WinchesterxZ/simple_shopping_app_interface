@@ -8,11 +8,11 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: [
-        Locale('en', 'US'),
-        Locale('ar', 'EG'),
+        Locale('en', 'US'), // english
+        Locale('ar', 'EG'), // arabic
       ],
       path: "lang",
-      fallbackLocale: Locale('ar', 'EG'),
+      fallbackLocale: Locale('en', 'US'), // if the locale is not supported or  when the locale is not in the list
       child: const MyApp(),
     ),
   ); // Entry point of the app
@@ -24,13 +24,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(Locale('ar', 'EG'));
     // Return a MaterialApp widget that contains the main home page widget
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+      debugShowCheckedModeBanner: false, // hide the debug banner.
+      localizationsDelegates: context.localizationDelegates, // list of delegates that can provide localized values
+      supportedLocales: context.supportedLocales, // list of locales that the app supports
+      locale: context.locale, // current locale of the app
       home: SignupScreen(), // Set MyHomePage as the home widget
     );
   }

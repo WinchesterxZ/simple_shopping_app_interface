@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/core/functions.dart';
@@ -47,8 +49,8 @@ class _MyWidgetState extends State<SignupScreen> {
         barrierDismissible: false, // Prevent dismissing by tapping outside
         builder: (BuildContext context) {
           return AlertDialog(
-            title:  Text(tr('dialog_headline')),
-            content:  Text(tr('dialog_content')),
+            title: Text(tr('dialog_headline')),
+            content: Text(tr('dialog_content')),
             actions: [
               TextButton(
                 onPressed: () {
@@ -74,7 +76,7 @@ class _MyWidgetState extends State<SignupScreen> {
                     ),
                   );
                 },
-                child:  Text(tr('dialog_button')),
+                child: Text(tr('dialog_button')),
               ),
             ],
           );
@@ -87,6 +89,52 @@ class _MyWidgetState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          // Language Selector Popup Menu
+          PopupMenuButton(
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                      value: 'en',
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image(
+                              image: AssetImage('assets/images/us.png'),
+                              width: 30,
+                              height: 30),
+                          Text(
+                            'English',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      )),
+                  PopupMenuItem(
+                      value: 'ar',
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image(
+                              image: AssetImage('assets/images/eg.png'),
+                              width: 30,
+                              height: 30),
+                          Text(
+                            ' العربية ',
+                            style: TextStyle(fontSize: 23),
+                          ),
+                        ],
+                      )),
+                ];
+              },
+              icon: Icon(Icons.language),
+              onSelected: (String value) {
+                if (value == 'en') {
+                  context.setLocale(Locale('en', 'US'));
+                } else {
+                  context.setLocale(Locale('ar', 'EG'));
+                }
+              }),
+        ],
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
@@ -107,7 +155,7 @@ class _MyWidgetState extends State<SignupScreen> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                         Padding(
+                        Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(
                             tr('create_account'),
