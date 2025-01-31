@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "311406148642",
+    "project_id": "sprints-4e884",
+    "storage_bucket": "sprints-4e884.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311406148642:android:7829a457d4d8f49a695e7b",
+        "android_client_info": {
+          "package_name": "com.example.shopping_app_interface"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn-f4VlufHtldz5gHGOxDSvYj7a9IjLqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

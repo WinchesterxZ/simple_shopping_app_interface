@@ -18,6 +18,16 @@
     "email_invalid":"البريد الإلكتروني غير صالح",
     "password_required":"كلمة المرور مطلوبة",
     "password_min":"كلمة المرور يجب ان تكون على الاقل 6 حروف",
-    "password_match":"كلمة المرور يجب ان تكون متطابقة"
-
+    "password_match":"كلمة المرور يجب ان تكون متطابقة",
+    "sign_in": "سجل دخولك",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "already_have_account": "هل لديك حساب؟",
+    "dont_have_account": "ليس لديك حساب؟",
+    "sign_up_now": "سجل الآن",
+    "email_in_use": "البريد الإلكتروني مستخدم بالفعل",
+    "weak_password": "كلمة المرور ضعيفة جدًا",
+    "account_created": "تم إنشاء الحساب بنجاح",
+    "user_not_found": "المستخدم غير موجود",
+    "wrong_password": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "login_success": "تم تسجيل الدخول بنجاح"
 }

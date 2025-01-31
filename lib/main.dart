@@ -1,10 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_app_interface/feature/signup/signup_page.dart';
+import 'package:shopping_app_interface/feature/login/login_page.dart';
+import 'package:shopping_app_interface/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     EasyLocalization(
       supportedLocales: [
@@ -30,7 +35,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates, // list of delegates that can provide localized values
       supportedLocales: context.supportedLocales, // list of locales that the app supports
       locale: context.locale, // current locale of the app
-      home: SignupScreen(), // Set MyHomePage as the home widget
+      home: LoginScreen(), // Set MyHomePage as the home widget
     );
   }
 }

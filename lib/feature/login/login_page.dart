@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app_interface/core/functions.dart';
 import 'package:shopping_app_interface/core/strings.dart';
 import 'package:shopping_app_interface/core/widgets/language_menu.dart';
+import 'package:shopping_app_interface/feature/shopping_screen/shopping_main_screen.dart';
+import 'package:shopping_app_interface/feature/signup/signup_page.dart';
 import 'package:shopping_app_interface/feature/signup/widgets/custom_button.dart';
 import 'package:shopping_app_interface/feature/signup/widgets/custom_icon_button.dart';
 import 'package:shopping_app_interface/feature/signup/widgets/custom_logo.dart';
 import 'package:shopping_app_interface/feature/signup/widgets/custom_text_field.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _MyWidgetState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _MyWidgetState extends State<SignupScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
-  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _passwordVerifyController = TextEditingController();
 
   // using ValueNotifier to avoid rebuilding the whole screen just for password visibility.
   final ValueNotifier<bool> _obscurePassword = ValueNotifier<bool>(true);
@@ -32,20 +32,11 @@ class _MyWidgetState extends State<SignupScreen> {
     _obscurePassword.value = !_obscurePassword.value;
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _emailController.dispose();
-    _usernameController.dispose();
-    _passwordController.dispose();
-    _passwordVerifyController.dispose();
-  }
-
   void _submit() async {
     if (_formKey.currentState!.validate()) {
       try {
         _isLoading.value = true;
-        await registerUser();
+        await signIn();
       } on FirebaseAuthException catch (e) {
         checkRegisteration(e);
       } catch (e) {
@@ -56,25 +47,46 @@ class _MyWidgetState extends State<SignupScreen> {
   }
 
   void checkRegisteration(FirebaseAuthException e) {
-    if (e.code == 'weak-password') {
-      showSnackBar(context, tr('weak_password'));
-      log(tr('weak_password'));
-    } else if (e.code == 'email-already-in-use') {
-      showSnackBar(context, tr('email_in_use'));
-      log(tr('email_in_use'));
+    if (e.code == 'user-not-found') {
+      showSnackBar(context, tr('user_not_found'));
+      log(tr('user_not_found'));
+    } else if (e.code == 'wrong-password') {
+      showSnackBar(context, tr('wrong_password'));
+      log(tr('wrong_password'));
     }
   }
 
-  Future<void> registerUser() async {
+  Future<void> signIn() async {
     UserCredential userCredential = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
+        .signInWithEmailAndPassword(
             email: _emailController.text, password: _passwordController.text);
     if (userCredential.user != null) {
-      userCredential.user!.updateDisplayName(_usernameController.text);
-      log('User created successfully ${userCredential.user!.email}');
-      showSnackBar(context, tr('account_created'));
-      Navigator.of(context).pop();
+      log('User created successfully ${userCredential.user!.uid}');
+      showSnackBar(context, tr('login_success'));
+      Navigator.of(context).pushReplacement(
+        // Using a custom page route to add a fade transition
+        PageRouteBuilder(
+          //  pageBuilder for defining the target page and transitionsBuilder for specifying the animation.
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MyHomePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(seconds: 1),
+        ),
+      );
     }
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _obscurePassword.dispose();
+    super.dispose();
   }
 
   @override
@@ -110,16 +122,8 @@ class _MyWidgetState extends State<SignupScreen> {
                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(
-                            tr('create_account'),
+                            tr('sign_in'),
                             style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: CustomTextField(
-                            controller: _usernameController,
-                            labelText: tr('username'),
-                            validator: validateUsername,
                           ),
                         ),
                         Padding(
@@ -149,28 +153,6 @@ class _MyWidgetState extends State<SignupScreen> {
                                 validator: validatePassword,
                               );
                             }),
-                        ValueListenableBuilder(
-                            valueListenable: _obscurePassword,
-                            builder: (context, value, child) {
-                              return Padding(
-                                padding: const EdgeInsets.only(top: 12.0),
-                                child: CustomTextField(
-                                  controller: _passwordVerifyController,
-                                  obscureText: value,
-                                  labelText: tr('confirm_password'),
-                                  suffixIcon: IconButton(
-                                    onPressed: _tooglePasswordVisability,
-                                    icon: Icon(
-                                      value
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                    ),
-                                  ),
-                                  validator: (value) => confirmPassword(
-                                      _passwordController, value),
-                                ),
-                              );
-                            }),
                         const SizedBox(
                           height: 25,
                         ),
@@ -181,7 +163,7 @@ class _MyWidgetState extends State<SignupScreen> {
                                 return CircularProgressIndicator();
                               } else {
                                 return CustomButtonWidget(
-                                    buttonText: tr('sign_up'),
+                                    buttonText: tr('sign_in'),
                                     onPressed: _submit);
                               }
                             }),
@@ -189,12 +171,29 @@ class _MyWidgetState extends State<SignupScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(tr('already_have_account')),
+                            Text(tr('dont_have_account')),
                             TextButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                Navigator.of(context).push(
+                                  // Using a custom page route to add a fade transition
+                                  PageRouteBuilder(
+                                    //  pageBuilder for defining the target page and transitionsBuilder for specifying the animation.
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        const SignupScreen(),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      return FadeTransition(
+                                        opacity: animation,
+                                        child: child,
+                                      );
+                                    },
+                                    transitionDuration:
+                                        const Duration(seconds: 1),
+                                  ),
+                                );
                               },
-                              child: Text(tr('sign_in'),
+                              child: Text(tr('sign_up'),
                                   style: TextStyle(
                                       color: Theme.of(context).primaryColor)),
                             )

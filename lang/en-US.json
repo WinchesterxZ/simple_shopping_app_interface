@@ -18,7 +18,18 @@
     "email_invalid":"Email is invalid",
     "password_required":"Password is required",
     "password_min":"Password must be at least 6 characters",
-    "password_match":"Passwords must match"
+    "password_match":"Passwords must match",
+    "sign_in": "Sign In",
+    "forgot_password": "Forgot Password?",
+    "already_have_account": "Already have an account?",
+    "dont_have_account": "Don't have an account?",
+    "sign_up_now": "Sign Up",
+    "email_in_use": "Email is already in use",
+    "weak_password": "Password is too weak",
+    "account_created": "Account created successfully",
+    "user_not_found": "User not found",
+    "wrong_password": "Wrong Email or Password",
+    "login_success": "Login successful"
     
 
 
