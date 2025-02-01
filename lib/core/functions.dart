@@ -53,3 +53,29 @@ void showSnackBar(BuildContext context, String message) {
     content: Text(message),
   ));
 }
+
+String? validateUserDate(String? value) {
+  if (value == null || value.isEmpty) {
+    return tr('field_required');  
+  }
+  return null;
+}
+
+String? validatePhoneNuber(String? value) {
+  if (value == null || value.isEmpty) {
+    return tr('phone_required');
+  }
+  if (value.length!=11) {
+    return tr('phone_invalid');
+  }
+  return null;
+}
+String? validateAge(String? value) {
+  if (value == null || value.isEmpty) {
+    return tr('age_required');
+  }
+  if (value.length!=2) {
+    return tr('age_invalid');
+  }
+  return null;
+}

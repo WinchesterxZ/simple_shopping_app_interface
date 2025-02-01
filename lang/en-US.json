@@ -1,36 +1,21 @@
 {
-    "create_account": "Create An Account",
-    "username": "Username",
-    "email": "Email",
-    "password": "Password",
-    "confirm_password": "Confirm Password",
-    "sign_up": "Sign Up",
-    "product_headline": "Our Products",
-    "offer_headline": "Hot Offers",
-    "app_headline": "Shopping App",
-    "dialog_headline":"Success",
-    "dialog_content":"Account Created Successfully",
-    "dialog_button":"OK",
-    "or": "Or",
-    "username_required":"Username is required",
-    "username_valid":"Username must start with a capital letter",
-    "email_required":"Email is required",
-    "email_invalid":"Email is invalid",
-    "password_required":"Password is required",
-    "password_min":"Password must be at least 6 characters",
-    "password_match":"Passwords must match",
-    "sign_in": "Sign In",
-    "forgot_password": "Forgot Password?",
-    "already_have_account": "Already have an account?",
-    "dont_have_account": "Don't have an account?",
-    "sign_up_now": "Sign Up",
-    "email_in_use": "Email is already in use",
-    "weak_password": "Password is too weak",
-    "account_created": "Account created successfully",
-    "user_not_found": "User not found",
-    "wrong_password": "Wrong Email or Password",
-    "login_success": "Login successful"
-    
+    "user_info": "Add User Info",
+    "name": "Enter your Name",
+    "age": "Enter your Age",
+    "fav_hobby": "Enter your Favorite Hobby",
+    "phone": "Enter your Phone Number",
+    "save": "Save",
+    "user_info_saved": "User Info Saved Successfully",
+    "display_user_info": "Display User Info",
+    "field_required": "This field is required",
+    "phone_required": "Phone number is required",
+    "phone_invalid": "Phone Number Cant be less or more than 11 digits",
+    "age_required": "Age is required",
+    "age_invalid": "Age must be 2 digits",
+    "user_added": "User Added Successfully",
+    "users_list": "Users List"
+
+
 
 
 
