@@ -99,4 +99,7 @@ android {
 
 ## Screenshots
 
+![1](https://github.com/user-attachments/assets/0c7a8e35-9197-4e36-b0c5-7b366b78f6c8)
+![2](https://github.com/user-attachments/assets/1bcc6eff-841b-4c74-a62f-165b57cbb0e2)
+![3](https://github.com/user-attachments/assets/a8f15518-abd7-4cfe-8c00-2baf6293ae0d)
 
