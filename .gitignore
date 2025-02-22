@@ -47,3 +47,4 @@ app.*.map.json
 #firebase
 firebase_options.dart
 firebase.json
+android/app/.cxx

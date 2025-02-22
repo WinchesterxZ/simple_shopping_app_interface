@@ -19,36 +19,84 @@ A Flutter application demonstrating Firebase Authentication with a clean UI and 
 - Firebase Account
 - Android Studio/VS Code
 
+## Release Process
 
+### 1. Build Release APK
 
-## Project Structure
+```bash
+# Generate release APK
+flutter build apk --release
 
 ```
-lib/
-├── core/
-│   ├── functions/
-│   └── widgets/
-├── feature/
-│   ├── login/
-│   ├── signup/
-│   └── shopping/
-└── main.dart
+
+### 2. Firebase App Distribution Setup
+
+1. Install Firebase CLI
+```bash
+npm install -g firebase-tools
 ```
 
-## Dependencies
+2. Login to Firebase
+```bash
+firebase login
+```
 
-- firebase_core
-- firebase_auth
-- easy_localization
-- flutter_sdk
+3. Initialize Firebase in your project
+```bash
+firebase init
+# Select App Distribution when prompted
+```
+
+4. Add Firebase App Distribution Gradle Plugin
+Add to android/build.gradle:
+```gradle
+buildscript {
+    dependencies {
+        classpath 'com.google.firebase:firebase-appdistribution-gradle:4.0.0'
+    }
+}
+```
+
+Add to android/app/build.gradle:
+```gradle
+apply plugin: 'com.google.firebase.appdistribution'
+
+android {
+    defaultConfig {
+        // ...existing config...
+    }
+
+    buildTypes {
+        release {
+            firebaseAppDistribution {
+                groups="testers"
+                releaseNotes="Bug fixes and improvements"
+            }
+        }
+    }
+}
+```
+
+### 3. Upload to Firebase App Distribution
+
+- Using Firebase Console:
+   - Go to Firebase Console
+   - Select App Distribution
+   - Click "New Release"
+   - Upload APK
+   - Select testers/groups
+   - Add release notes
+   - Distribute
+
+### 4. Testing
+
+1. Testers will receive an email invitation
+2. They need to:
+   - Accept the invitation
+   - Install Firebase App Tester app
+   - Download and test your app
+
 
 ## Screenshots
 
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](LICENSE)

@@ -36,14 +36,14 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug
             firebaseAppDistribution {
-                serviceCredentialsFile="android/app/google-services.json"
-                releaseNotes="Initial beta release"
-                testers="ahmed.emad.a.e.m@gmail.com,shaowhuntersxz@gmail.com"
+                groups="testers"
+                releaseNotes="Our First Release"
             }
+            signingConfig = signingConfigs.debug
         }
     }
+    
 }
 
 flutter {
